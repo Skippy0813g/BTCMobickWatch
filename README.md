@@ -57,7 +57,7 @@ Advanced users can pair it with a cold wallet over QR to manage BTC-family asset
 
 ## Support
 
-If this app is useful to you:
+If this app has been useful, buy me a coffee. It'll keep me going.
 
 `bc1q3aa08pnpj7qqzpw4pye2a7jyryxdzqc2lk32pl`
 
