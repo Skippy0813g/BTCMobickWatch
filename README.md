@@ -59,10 +59,9 @@ Advanced users can pair it with a cold wallet over QR to manage BTC-family asset
 
 If this app is useful to you:
 
-| | |
-|---|---|
-| BTCMobick (BMB) | `bc1q3aa08pnpj7qqzpw4pye2a7jyryxdzqc2lk32pl` |
-| Wrapped BMB (WBMB) | `0xea66EA4787d0D8Ec7264651808e82F871aB30279` |
+`bc1q3aa08pnpj7qqzpw4pye2a7jyryxdzqc2lk32pl`
+
+`0xea66EA4787d0D8Ec7264651808e82F871aB30279`
 
 ## License
 
