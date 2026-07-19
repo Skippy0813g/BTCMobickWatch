@@ -54,7 +54,6 @@
 - **[`BUILD.ko.md`](BUILD.ko.md)** — 소스에서 직접 빌드하는 절차, 그리고 배포 APK가 이 소스에서
   나왔는지 검증하는 방법(5번). 도구 버전이 전부 고정된 [`Dockerfile`](Dockerfile)을 함께
   제공합니다.
-- [`app/README.md`](app/README.md) — React Native 개발 환경(Metro 등) 참고용
 
 ## 라이선스
 

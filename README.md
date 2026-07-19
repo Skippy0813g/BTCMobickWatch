@@ -54,7 +54,6 @@ Advanced users can pair it with a cold wallet over QR to manage BTC-family asset
 - **[`BUILD.md`](BUILD.md)** — how to build from source, and how to verify that the distributed APK
   came from this source (section 5). A [`Dockerfile`](Dockerfile) with every tool version pinned is
   included.
-- [`app/README.md`](app/README.md) — React Native development notes (Metro and so on)
 
 ## License
 
