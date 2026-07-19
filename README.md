@@ -41,6 +41,17 @@ Advanced users can pair it with a cold wallet over QR to manage BTC-family asset
 - **BTC family**: Bitcoin (BTC), BTCMobick (BMB), LaptopMining (LTM) — viewing and air-gapped sending
 - **EVM**: BNB, Ethereum, Base and related tokens (WBMB, MOVN, USDT, and others) — viewing only for now
 
+## Libraries
+
+The wallet's core logic uses [Bitcoin Dev Kit (BDK)](https://bitcoindevkit.org) and
+[rust-bitcoin](https://github.com/rust-bitcoin/rust-bitcoin). Address derivation, balance and
+UTXO calculation, transaction (PSBT) construction — the parts that have to be exact — are left
+to audited libraries rather than written from scratch.
+
+Neither library knows the BTCMobick or LaptopMining network parameters, so both are forked.
+**Adding those two networks is the entire change**, and you can see it with the two commands
+in [BUILD.md](BUILD.md).
+
 ## Official channels
 
 - Download: **[Releases](../../releases)** — currently the only official distribution (Android 8.0 or later)

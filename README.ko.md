@@ -41,6 +41,17 @@
 - **BTC 계열**: Bitcoin(BTC), BTCMobick(BMB), LaptopMining(LTM) — 조회 및 에어갭 송금 지원
 - **EVM**: BNB·Ethereum·Base 및 관련 토큰(WBMB·MOVN·USDT 등) — 현재 조회 전용
 
+## 사용 라이브러리
+
+지갑의 핵심 로직은 [Bitcoin Dev Kit(BDK)](https://bitcoindevkit.org)와
+[rust-bitcoin](https://github.com/rust-bitcoin/rust-bitcoin)을 사용합니다. 주소 파생,
+잔액·UTXO 계산, 거래(PSBT) 생성처럼 엄밀해야 하는 부분은 직접 구현하지 않고 검증된
+라이브러리에 맡겼습니다.
+
+다만 BDK와 rust-bitcoin에는 BTCMobick·LaptopMining의 네트워크 파라미터가 없어 직접
+포크했으며, **두 네트워크를 추가한 것이 다입니다.** 무엇이 바뀌었는지는
+[BUILD.ko.md](BUILD.ko.md)의 명령 두 줄로 직접 확인하실 수 있습니다.
+
 ## 공식 채널
 
 - 다운로드: **[Releases](../../releases)** — 현재 유일한 공식 배포 경로 (Android 8.0 이상)
