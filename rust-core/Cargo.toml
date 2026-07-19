@@ -1,0 +1,38 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/core-btc",
+    "crates/core-evm",
+    "crates/ffi",
+    "tools/uniffi-bindgen",
+]
+
+[workspace.dependencies]
+# bdk_wallet은 crates.io에서 받되, [patch]로 커스텀 rust-bitcoin 주입
+bitcoin      = { version = "0.32", features = ["rand"] }
+bdk_wallet   = { version = "=1.0.0" }
+bdk_electrum = { version = "0.20" }
+bdk_chain    = { version = "0.21" }
+
+alloy        = { version = "2.1", default-features = false, features = ["rpc-types", "provider-http", "reqwest", "sol-types"] }
+reqwest      = { version = "0.12", default-features = false, features = ["rustls-tls"] }
+tokio        = { version = "1", features = ["rt", "rt-multi-thread"] }
+uniffi       = { version = "0.29", features = ["tokio"] }
+rustls       = { version = "0.23", features = ["ring"] }
+rustls-pemfile = "2"
+webpki-roots   = "0.26"
+x509-parser    = "0.16"
+serde        = { version = "1", features = ["derive"] }
+serde_json   = "1"
+thiserror    = "2"
+
+# 커스텀 rust-bitcoin(Mobick/LaptopMining 네트워크 패치)으로 crates.io 버전 교체
+[patch.crates-io]
+bitcoin        = { path = "../vendors/rust-bitcoin-btcmobick/bitcoin" }
+bitcoin-io     = { path = "../vendors/rust-bitcoin-btcmobick/io" }
+bitcoin-units  = { path = "../vendors/rust-bitcoin-btcmobick/units" }
+bitcoin_hashes = { path = "../vendors/rust-bitcoin-btcmobick/hashes" }
+bdk_wallet     = { path = "../vendors/bdk-btcmobick/crates/wallet" }
+bdk_chain      = { path = "../vendors/bdk-btcmobick/crates/chain" }
+bdk_core       = { path = "../vendors/bdk-btcmobick/crates/core" }
+bdk_electrum   = { path = "../vendors/bdk-btcmobick/crates/electrum" }

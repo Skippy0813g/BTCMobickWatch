@@ -1,0 +1,10 @@
+# Docker 빌드 컨텍스트 축소 (Dockerfile은 소스를 COPY하지 않고 런타임에 -v로 마운트).
+# 무거운 산출물/의존물은 컨텍스트에서 제외.
+app/node_modules/
+**/build/
+**/target/
+**/.gradle/
+**/.cxx/
+*.aab
+*.apk
+.git/

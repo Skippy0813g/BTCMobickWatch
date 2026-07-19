@@ -1,0 +1,18 @@
+[package]
+name    = "core-btc"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bitcoin      = { workspace = true }
+bdk_wallet   = { workspace = true }
+bdk_electrum = { workspace = true }
+bdk_chain    = { workspace = true }
+tokio        = { workspace = true }
+serde        = { workspace = true }
+serde_json   = { workspace = true }
+thiserror      = { workspace = true }
+rustls         = { workspace = true }
+rustls-pemfile = { workspace = true }
+webpki-roots   = { workspace = true }
+x509-parser    = { workspace = true }

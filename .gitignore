@@ -1,0 +1,55 @@
+# Rust
+target/
+# Cargo.lock은 재현빌드를 위해 커밋함(앱=바이너리 산출물이므로 의존성 버전 고정 필수). 서브모듈/target 내부는 위 target/ 및 서브모듈 자체 관리.
+
+# Android build outputs
+# 엔진 .aar은 rust-core/scripts/build_android.sh가 생성함(커밋하지 않음 — 소스에서 빌드)
+app/android/app/libs/*.aar
+# JS 번들은 gradle assembleRelease가 생성함
+app/android/app/src/main/assets/index.android.bundle
+rust-core/aar_build/
+rust-core/jniLibs/
+# 빌드 스크립트 잔재(앱 미사용 orphan). 실제 앱 번들은 app/android/app/libs/lib_wallet_core.aar
+rust-core/scripts/jniLibs/
+rust-core/scripts/aar_build/
+*.apk
+*.aab
+
+# React Native
+node_modules/
+.expo/
+dist/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Private — do not commit
+TODO_PRIVATE.md
+OPEN_SOURCE_PLAN.md
+AI_HANDOFF_RETROSPECTIVE.md
+*.env.local
+env.json
+
+# 타 앱 참고용 APK 추출물 (분석용, 커밋 금지)
+ltm_extracted/
+mendel_extracted/
+ltmwallet.zip
+mendelwallet.zip
+
+# AI 에이전트 로컬 설정 (개인 워크플로우용, 공개 레포 미포함)
+.agents/
+
+# 로컬 디버그/크래시 로그 (기기 로그 — 공개 레포 미포함)
+app/crash_log.txt
+build_release*.log
+*.logcat
+
+# 릴리스 서명 — 절대 커밋 금지 (유출 시 앱 위조 가능)
+keystore.properties
+*.jks

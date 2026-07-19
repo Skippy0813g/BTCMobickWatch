@@ -1,0 +1,124 @@
+namespace wallet_core {
+    void init_runtime();
+
+    [Throws=WalletError]
+    string zpub_to_descriptor(string zpub);
+
+    [Throws=WalletError]
+    string zpub_to_change_descriptor(string zpub);
+
+    [Throws=WalletError]
+    BalanceInfo scan_address_balance(WalletNetwork network, string address, sequence<string> electrum_urls);
+
+    [Throws=WalletError]
+    FeeEstimates scan_fee_estimates(WalletNetwork network, sequence<string> electrum_urls);
+
+    [Throws=WalletError]
+    sequence<TxInfo> scan_address_history(WalletNetwork network, string address, sequence<string> electrum_urls);
+};
+
+enum WalletNetwork {
+    "Mobick",
+    "LaptopMining",
+    "Bitcoin",
+};
+
+dictionary BalanceInfo {
+    u64 confirmed_sat;
+    u64 unconfirmed_sat;
+    u64 trusted_pending_sat;
+    u64 pending_outgoing_sat;
+};
+
+dictionary FeeEstimates {
+    double fast_sat_vb;
+    double normal_sat_vb;
+    double slow_sat_vb;
+};
+
+dictionary PsbtResult {
+    string psbt_base64;
+    u64 fee_sat;
+};
+
+dictionary PsbtDecoded {
+    string recipient;
+    u64 amount_sat;
+    u64 fee_sat;
+    u64 change_sat;
+    u64 external_output_count;
+};
+
+dictionary AddressInfo {
+    string address;
+    u64 balance_sat;
+    boolean used;
+};
+
+dictionary TxInfo {
+    string txid;
+    u64? confirmed_at;
+    u32? block_height;
+    u64 sent_sat;
+    u64 received_sat;
+};
+
+[Error]
+enum WalletError {
+    "InvalidDescriptor",
+    "ElectrumConnection",
+    "ScanFailed",
+    "PsbtCreation",
+    "Broadcast",
+    "RpcError",
+    "InvalidAddress",
+    "InsufficientFunds",
+};
+
+interface BtcWatchWallet {
+    [Throws=WalletError]
+    constructor(WalletNetwork network, string descriptor, string? change_descriptor);
+
+    [Name=from_changeset, Throws=WalletError]
+    constructor(WalletNetwork network, string changeset_json);
+
+    [Throws=WalletError]
+    string export_changeset();
+
+    [Throws=WalletError]
+    BalanceInfo full_scan(sequence<string> electrum_urls);
+
+    [Throws=WalletError]
+    BalanceInfo sync(sequence<string> electrum_urls);
+
+    [Throws=WalletError]
+    sequence<string> get_addresses(u32 start, u32 count);
+
+    [Throws=WalletError]
+    string next_receive_address();
+
+    [Throws=WalletError]
+    sequence<AddressInfo> get_addresses_with_balance(u32 start, u32 count, boolean is_change);
+
+    [Throws=WalletError]
+    PsbtResult create_psbt(string recipient, u64 amount_sat, float fee_rate_sat_vb);
+
+    [Throws=WalletError]
+    PsbtDecoded decode_psbt(string psbt_base64);
+
+    [Throws=WalletError]
+    string broadcast_signed_psbt(string psbt_base64, sequence<string> electrum_urls);
+
+    [Throws=WalletError]
+    sequence<TxInfo> list_transactions();
+};
+
+interface EvmBalanceChecker {
+    constructor(string rpc_url);
+
+    [Throws=WalletError]
+    string get_token_balance(string contract_addr, string wallet_addr);
+
+    [Throws=WalletError]
+    string get_native_balance(string wallet_addr);
+};

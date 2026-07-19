@@ -1,0 +1,21 @@
+[package]
+name    = "ffi"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name       = "wallet_core"
+crate-type = ["cdylib", "staticlib"]
+
+[dependencies]
+core-btc   = { path = "../core-btc" }
+core-evm   = { path = "../core-evm" }
+bitcoin    = { workspace = true }
+bdk_wallet = { workspace = true }
+tokio      = { workspace = true }
+uniffi     = { workspace = true }
+thiserror  = { workspace = true }
+rustls     = { workspace = true }
+
+[build-dependencies]
+uniffi = { workspace = true, features = ["build"] }

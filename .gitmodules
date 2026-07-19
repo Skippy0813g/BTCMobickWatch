@@ -1,0 +1,8 @@
+[submodule "vendors/rust-bitcoin-btcmobick"]
+	path = vendors/rust-bitcoin-btcmobick
+	url = https://github.com/Skippy0813g/rust-bitcoin-btcmobick.git
+	branch = btcmobick
+[submodule "vendors/bdk-btcmobick"]
+	path = vendors/bdk-btcmobick
+	url = https://github.com/Skippy0813g/bdk-btcmobick.git
+	branch = btcmobick

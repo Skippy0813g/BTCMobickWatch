@@ -1,0 +1,21 @@
+# 재현빌드: 줄바꿈을 LF로 통일 (윈도우 체크아웃 시 CRLF 변환 방지).
+# CRLF로 바뀌면 셸 스크립트 동작/파일 해시가 달라져 재현이 깨질 수 있음.
+* text=auto eol=lf
+
+# 명시적으로 LF여야 하는 것들
+*.sh   text eol=lf
+*.toml text eol=lf
+*.md   text eol=lf
+*.gradle text eol=lf
+
+# 윈도우 배치파일은 CRLF
+*.bat  text eol=crlf
+
+# 바이너리(줄바꿈 변환 금지)
+*.aar     binary
+*.so      binary
+*.jks     binary
+*.keystore binary
+*.png     binary
+*.jpg     binary
+*.webp    binary
