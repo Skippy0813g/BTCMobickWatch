@@ -184,7 +184,7 @@ scripts/verify-reproducible.sh compare <공식APK> out/app-release.apk
 
 ### 결과가 다르다면
 
-신고 전에 아래를 확인해 주세요. 대부분 여기서 갈립니다.
+제보 전에 아래를 확인해 주세요. 대부분 여기서 갈립니다.
 
 | 증상 | 원인 |
 |------|------|
