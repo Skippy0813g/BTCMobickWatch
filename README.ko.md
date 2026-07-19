@@ -55,6 +55,17 @@
   나왔는지 검증하는 방법(5번). 도구 버전이 전부 고정된 [`Dockerfile`](Dockerfile)을 함께
   제공합니다.
 
+## 후원
+
+이 앱이 도움이 되셨다면:
+
+| | |
+|---|---|
+| BTCMobick (BMB) | `bc1q3aa08pnpj7qqzpw4pye2a7jyryxdzqc2lk32pl` |
+| Wrapped BMB (WBMB) | `0xea66EA4787d0D8Ec7264651808e82F871aB30279` |
+
+전혀 부담 갖지 않으셔도 됩니다. 앱 동작에는 아무 차이가 없습니다.
+
 ## 라이선스
 
 MIT License — [`LICENSE`](LICENSE) 참고
